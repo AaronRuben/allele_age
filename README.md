@@ -1,4 +1,4 @@
-# Estimating the age of the HOXB13 variant in African men
+# Estimating the age of the _HOXB13_ X285K variant in African ancestry men
 The variant is almost exclusively found in West Africa at a frequency of ~0.5%.
 We want to estimate its age.
 
