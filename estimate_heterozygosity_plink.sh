@@ -23,7 +23,7 @@ awk '{sum = 0; for (i = 1; i <= NF; i++) sum += $i; print sum}' data/heterozygou
   sponge data/heterozygous_counts_plink2.tab.tmp
 cut -f1 ${filebase}.scount | paste - data/heterozygous_counts_plink2.tab.tmp |
   sponge data/heterozygous_counts_plink2.tab.tmp
-awk -F '\t' 'BEGIN{OFS="\t"; print "#IID", "HET_CT", "H"}{ if (NR cols!= 1) print $0,$2/(3200000000)}' data/heterozygous_counts_plink2.tab.tmp |
+awk -F '\t' 'BEGIN{OFS="\t"; print "#IID", "HET_CT", "H"}{ if (NR cols!= 1) print $0,$2/(3100000000)}' data/heterozygous_counts_plink2.tab.tmp |
   sponge data/heterozygous_counts_plink2.tab.tmp
 awk -F '\t' 'BEGIN{OFS="\t"; print "#IID", "HET_CT", "H", "theta"}{if (NR != 1) print $0,-$3/($3 - 1)}' data/heterozygous_counts_plink2.tab.tmp |
   sponge data/heterozygous_counts_plink2.tab.tmp
