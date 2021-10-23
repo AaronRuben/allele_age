@@ -216,7 +216,7 @@ def main(argv):
     print("Not considering Bantu migration")
     print('Median: {:.2f} years'.format(bins[np.where(np.cumsum(hist_unnormalized) >= 0.5)[0][0]]))
     print('Mean: {:.2f} years'.format(np.sum(hist_unnormalized * bins)))
-    print('Mode: {:.2f} - {:.2f} years'.format(bins[np.argmax(hist_unnormalized)], bins[np.argmax(final_hist) + 1]))
+    print('Mode: {:.2f} - {:.2f} years'.format(bins[np.argmax(hist_unnormalized)], bins[np.argmax(hist_unnormalized) + 1]))
     print('95% CI: {:.2f} - {:.2f} years'.format(bins[np.where(np.cumsum(hist_unnormalized) >= 0.025)[0][0]],
                                                  bins[np.where(np.cumsum(hist_unnormalized) >= 0.975)[0][0]]))
     print("Considering Bantu migration:")
