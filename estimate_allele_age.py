@@ -157,7 +157,7 @@ def main(argv):
     # Ne values
     Ne = heterozygosity_df.Ne.value_counts().index.values
     # PDF of Ne
-    Ne_dist = heterozygosity_df.Ne.value_counts().values / heterozygosity_df.shape[0]
+    Ne_dist = norm(loc=int(Ne.mean()), scale=int(Ne.std()))
 
     # get distribution of allele ages P(age) = sum(P(age | frequency) * P(frequency))
     t_dist, t = get_age_distribution(args.allele_frequency, args.sample_size,)
@@ -166,7 +166,7 @@ def main(argv):
     # run simulations
     nr_simulations = 1000000
     # sample population size
-    sampled_N = np.random.choice(Ne, p=Ne_dist, size=nr_simulations)
+    sampled_N = Ne_dist.rvs(nr_simulations)
     # sample age
     sampled_t = np.random.choice(t, p=t_dist, size=nr_simulations)
     # scale age to two 2N and generation time --> years
