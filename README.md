@@ -1,5 +1,5 @@
 # Estimating the age of the _HOXB13_ X285K variant in African ancestry men
-The variant is almost exclusively found in West Africa at a frequency of ~0.5%.
+The variant is almost exclusively found in West Africa at a frequency of ~0.5% (check out the publication [here](https://doi.org/10.1016/j.eururo.2021.12.023)).
 We want to estimate its age.
 
 - The observed allele frequency comes with some uncertainty depending on the sample size n. We can use a Binomial proportion confidence interval to determine the 95% CI.
