@@ -27,7 +27,7 @@ awk -F '\t' 'BEGIN{OFS="\t"; print "#IID", "HET_CT", "H"}{ if (NR cols!= 1) prin
   sponge data/heterozygous_counts_plink2.tab.tmp
 awk -F '\t' 'BEGIN{OFS="\t"; print "#IID", "HET_CT", "H", "theta"}{if (NR != 1) print $0,-$3/($3 - 1)}' data/heterozygous_counts_plink2.tab.tmp |
   sponge data/heterozygous_counts_plink2.tab.tmp
-awk -F '\t' 'BEGIN{OFS="\t"; print "#IID", "HET_CT", "H", "theta", "Ne"}{if (NR != 1) print $0, $4 / (4 * 1.2 * 1e-8)}' data/heterozygous_counts_plink2.tab.tmp |
+awk -F '\t' 'BEGIN{OFS="\t"; print "#IID", "HET_CT", "H", "theta", "Ne"}{if (NR != 1) print $0, $3 / (4 * 1.2 * 1e-8 - 4 * $3 * 1.2 * 1e-8)}' data/heterozygous_counts_plink2.tab.tmp |
   sponge data/heterozygous_counts_plink2.tab.tmp
 
 for file in data/ESN*vcf.gz; do
@@ -52,7 +52,7 @@ awk -F '\t' 'BEGIN{OFS="\t"; print "#IID", "HET_CT", "H"}{ if (NR cols!= 1) prin
   sponge data/heterozygous_counts_plink2.tab
 awk -F '\t' 'BEGIN{OFS="\t"; print "#IID", "HET_CT", "H", "theta"}{if (NR != 1) print $0,-$3/($3 - 1)}' data/heterozygous_counts_plink2.tab |
   sponge data/heterozygous_counts_plink2.tab
-awk -F '\t' 'BEGIN{OFS="\t"; print "#IID", "HET_CT", "H", "theta", "Ne"}{if (NR != 1) print $0, $4 / (4 * 1.2 * 1e-8)}' data/heterozygous_counts_plink2.tab |
+awk -F '\t' 'BEGIN{OFS="\t"; print "#IID", "HET_CT", "H", "theta", "Ne"}{if (NR != 1) print $0, $3 / (4 * 1.2 * 1e-8 - 4 * $3 * 1.2 * 1e-8)}' data/heterozygous_counts_plink2.tab |
   sponge data/heterozygous_counts_plink2.tab
 
 # merge datasets
